@@ -4,28 +4,44 @@ extends Spatial
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var ground = get_parent()
+var ground = Vector3(0,0,0)
+var found_ground = false
+#var y_offset = -0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ground = get_parent().get_translation()
+	#y_offset = ground.y - 2 
+	#print(y_offset)
+	var rs = rand_range(0.5,5.2)
+	var RockScale= Vector3(rs,rs,rs)
+	self.scale_object_local(RockScale)
 	generate_rocks()
+	translate_object_local(Vector3(0,-0.1,0))
+	#$plantcircle.translate_object_local(Vector3(0,ground.y,0))
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#unc _process(delta):
+func _process(_delta):
 	#Mistro.process_movement($rock,delta)
+	if found_ground == false:
+		$PlantCircle.translate_object_local(Vector3(0,0.02,0))
+	else:
+		set_process(false)
+	
 	#pass
 
 func generate_rocks():
 	var num_of_rocks = int(rand_range(1,5))
+	
 	while get_child_count() < num_of_rocks:
 		var rock_instance = $rock.duplicate()
-		var rotate_rock = int(rand_range(1,3))
+		var rotate_rock = int(rand_range(1,6))
 		var scale_rock = int(rand_range(1,3))
 		var offset_rock = int(rand_range(1,3))
 		
-		var rs = rand_range(-5.2,2.2)
+		var rs = rand_range(0.5,2)
 		
 		var RockRotation = Vector3(0,1,0)
 		
@@ -34,13 +50,17 @@ func generate_rocks():
 		
 		match rotate_rock:
 			1:
-				#RockRotation = Vector3(1,1,0)
-				RockScale = Vector3(rs,rs * 0.5,rs)
+				RockRotation = Vector3(1,0,0)
 			2:
-				#RockRotation = Vector3(0,0,1)
-				RockScale = Vector3(rs,rs * 0.8,rs)
+				RockRotation = Vector3(0,0,1)
 			3:
 				RockRotation = Vector3(0,1,0)
+			4:
+				RockRotation = Vector3(1,1,0)
+			5:
+				RockRotation = Vector3(0,1,1)
+			6:
+				RockRotation = Vector3(1,0,1)
 				
 		match offset_rock:
 			1:
@@ -52,9 +72,52 @@ func generate_rocks():
 				
 		
 		rock_instance.scale_object_local(RockScale)
-		rock_instance.rotate(RockRotation,10)
-		rock_instance.translate(RockOffset)
+		rock_instance.rotate(RockRotation.normalized(),90)
+		rock_instance.set_translation(RockOffset)
 		
 		add_child(rock_instance)
 		pass
 	
+
+
+
+func _on_PlantCircle_body_shape_exited(body_id, body, body_shape, local_shape):
+	if body.get_groups().has("Ground"):
+		#print("B S E stopped")
+		found_ground = true
+	pass # Replace with function body.
+
+
+func _on_PlantCircle_body_exited(body):
+	if body.get_groups().has("Ground"):
+		#print("B E stopped")
+		found_ground = true
+	pass # Replace with function body.
+
+
+func _on_PlantCircle_body_shape_entered(body_id, body, body_shape, local_shape):
+	#if body.get_groups().has("Ground"):
+		#print("B S En stopped")
+		#found_ground = true
+	pass # Replace with function body.
+
+
+func _on_PlantCircle_body_entered(body):
+	#if body.get_groups().has("Ground"):
+		#print(" B En stopped")
+		#found_ground = true
+	pass # Replace with function body.
+
+
+func _on_PlantCircle_area_shape_exited(area_id, area, area_shape, local_shape):
+	if area.get_groups().has("Ground"):
+		#print(" A E stopped")
+		found_ground = true
+	pass # Replace with function body.
+
+
+func _on_PlantCircle_area_shape_entered(area_id, area, area_shape, local_shape):
+	if area.get_groups().has("Ground"):
+		#print("A En stopped")
+		found_ground = true
+	pass # Replace with function body.

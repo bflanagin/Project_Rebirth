@@ -6,6 +6,5 @@
 background_mode = 2
 background_sky = SubResource( 1 )
 fog_enabled = true
-tonemap_mode = 3
 ss_reflections_enabled = true
 ssao_enabled = true

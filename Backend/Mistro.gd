@@ -18,7 +18,7 @@ func _ready():
 func save_game():
 	print("saving")
 	
-func load_game(gamefile):
+func load_game(_gamefile):
 	print("loading")
 	
 func list_saved_games():
