@@ -17,12 +17,12 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 395.0
-margin_bottom = 593.0
+margin_right = 998.648
+margin_bottom = 1433.0
 rect_min_size = Vector2( 0, 480 )
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 388.0
+margin_right = 991.0
 margin_bottom = 14.0
 text = "Game Title"
 align = 1
@@ -31,32 +31,32 @@ autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 18.0
-margin_right = 388.0
+margin_right = 991.0
 margin_bottom = 22.0
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 margin_top = 26.0
-margin_right = 388.0
+margin_right = 991.0
 margin_bottom = 46.0
 text = "Play"
 
 [node name="Load" type="Button" parent="VBoxContainer"]
 margin_top = 50.0
-margin_right = 388.0
+margin_right = 991.0
 margin_bottom = 70.0
 text = "Load"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 margin_top = 74.0
-margin_right = 388.0
+margin_right = 991.0
 margin_bottom = 94.0
 text = "Settings"
 
 [node name="Overlay" type="Control" parent="."]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 395.0
-margin_bottom = 593.0
+margin_right = 998.648
+margin_bottom = 1433.0
 mouse_filter = 2
 
 [node name="Quit" type="Button" parent="Overlay"]

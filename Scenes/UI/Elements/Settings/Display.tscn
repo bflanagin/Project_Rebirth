@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/UI/Elements/Settings/Scripts/Display.gd" type="Script" id=1]
+
+[node name="Display" type="VBoxContainer"]
+margin_left = 2.19644
+margin_top = 3.07935
+margin_right = 302.196
+margin_bottom = 403.079
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 347.0
+margin_bottom = 108.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 347.0
+margin_bottom = 108.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 347.0
+margin_bottom = 14.0
+text = "Display Settings"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 347.0
+margin_bottom = 28.0
+
+[node name="FullScreen" type="CheckButton" parent="HBoxContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 347.0
+margin_bottom = 78.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Full Screen"
+flat = true
+
+[node name="Resolution" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 347.0
+margin_bottom = 108.0
+custom_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Resolution"]
+margin_top = 3.0
+margin_right = 68.0
+margin_bottom = 17.0
+text = "Resolution"
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Resolution"]
+margin_left = 168.0
+margin_right = 218.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="ResolutionList" type="OptionButton" parent="HBoxContainer/VBoxContainer/Resolution"]
+margin_left = 318.0
+margin_right = 347.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true

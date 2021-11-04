@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Menu Confirm.wav-8cba7ce9400f2ce7090627844fd3b233.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/Menu Confirm.wav"
+dest_files=[ "res://.import/Menu Confirm.wav-8cba7ce9400f2ce7090627844fd3b233.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

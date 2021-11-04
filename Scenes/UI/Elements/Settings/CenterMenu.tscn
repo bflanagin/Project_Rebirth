@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/UI/Menus.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/default.theme" type="Theme" id=2]
+[ext_resource path="res://Assets/Fonts/liberation2/LiberationMono-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0, 0, 0, 0.647059 )
+
+[node name="CenterMenu" type="PanelContainer"]
+anchor_right = 0.393
+anchor_bottom = 1.0
+margin_left = 23.0
+margin_top = 19.0
+margin_right = 207.92
+margin_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 400, 480 )
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1181.0
+margin_bottom = 1396.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="options" type="VBoxContainer" parent="HSplitContainer"]
+margin_right = 152.0
+margin_bottom = 1386.0
+
+[node name="Label" type="Label" parent="HSplitContainer/options"]
+margin_right = 152.0
+margin_bottom = 109.0
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/options"]
+margin_top = 125.0
+margin_right = 152.0
+margin_bottom = 129.0
+
+[node name="Display" type="Button" parent="HSplitContainer/options"]
+margin_top = 145.0
+margin_right = 152.0
+margin_bottom = 253.0
+text = "Display "
+
+[node name="Graphics" type="Button" parent="HSplitContainer/options"]
+margin_top = 269.0
+margin_right = 152.0
+margin_bottom = 377.0
+text = "Graphics"
+
+[node name="Sound" type="Button" parent="HSplitContainer/options"]
+margin_top = 393.0
+margin_right = 152.0
+margin_bottom = 501.0
+text = "Sound"
+
+[node name="LinkedAccounts" type="Button" parent="HSplitContainer/options"]
+margin_top = 517.0
+margin_right = 152.0
+margin_bottom = 625.0
+text = "Accounts"
+
+[node name="SettingsPane" type="ScrollContainer" parent="HSplitContainer"]
+margin_left = 160.0
+margin_right = 1171.0
+margin_bottom = 1386.0
+custom_styles/bg = SubResource( 2 )
+scroll_horizontal_enabled = false
+
+[node name="Overlay" type="Control" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1181.0
+margin_bottom = 1396.0
+mouse_filter = 2
+
+[node name="Back" type="Button" parent="Overlay"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -99.0
+margin_right = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}

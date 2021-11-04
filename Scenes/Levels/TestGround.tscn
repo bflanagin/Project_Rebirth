@@ -34,9 +34,7 @@ propagation = 0.7
 [node name="TestGround" type="Spatial"]
 script = ExtResource( 3 )
 
-[node name="Ground" type="StaticBody" parent="." groups=[
-"Ground",
-]]
+[node name="Ground" type="StaticBody" parent="." groups=["Ground"]]
 collision_layer = 519
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground"]

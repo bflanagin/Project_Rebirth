@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/Menus.gd" type="Script" id=1]
+
+[node name="RightMenu" type="PanelContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_right = 3.0
+grow_horizontal = 0
+grow_vertical = 2
+rect_min_size = Vector2( 400, 480 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 396.0
+margin_bottom = 593.0
+rect_min_size = Vector2( 0, 480 )
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 389.0
+margin_bottom = 14.0
+text = "Game Title"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 389.0
+margin_bottom = 22.0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+margin_top = 26.0
+margin_right = 389.0
+margin_bottom = 46.0
+text = "Play"
+
+[node name="Load" type="Button" parent="VBoxContainer"]
+margin_top = 50.0
+margin_right = 389.0
+margin_bottom = 70.0
+text = "Load"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 389.0
+margin_bottom = 94.0
+text = "Settings"
+
+[node name="Overlay" type="Control" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 396.0
+margin_bottom = 593.0
+mouse_filter = 2
+
+[node name="Quit" type="Button" parent="Overlay"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -95.0
+margin_top = -20.0
+margin_right = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
