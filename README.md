@@ -1,6 +1,12 @@
 # Project Rebirth
 
+## November 1st-30th: Development Sprint
 
+This November will be the first development sprint for Project Rebirth. It may also be included as a submission for GoGodotJam as the game itself is new even if this will be my third time using a lot of the assets. 
+
+The goal will be to complete Phase1 in [Projects](https://github.com/bflanagin/Project_Rebirth/projects/1) and I will be blogging my progress and streaming my work on [Peakd](https://peakd.com/@bflanagin/) and [Vimm](https://www.vimm.tv/c/bflanagin) respectively. 
+
+More news in the coming days.
 
 ## Licenses 
 
