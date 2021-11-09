@@ -20,7 +20,7 @@ var sprinting := false
 # Walk
 const FLOOR_MAX_ANGLE: float = deg2rad(46.0)
 export(float) var gravity = 30.0
-export(int) var walk_speed = 10
+export(int) var walk_speed = 5
 export(int) var sprint_speed = 16
 export(int) var acceleration = 8
 export(int) var deacceleration = 10
