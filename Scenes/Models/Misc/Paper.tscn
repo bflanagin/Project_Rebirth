@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Models/Objects/paper_white.material" type="Material" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+material = ExtResource( 1 )
+size = Vector2( 0.2, 0.3 )
+subdivide_width = 4
+subdivide_depth = 4
+
+[node name="Paper" type="SoftBody"]
+mesh = SubResource( 1 )
+material/0 = null

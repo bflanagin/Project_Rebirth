@@ -4,7 +4,7 @@ extends Node
 # Function that go here, can be accessed by all other scripts.
 # Use this sparingly as noise between scenes and nodes can make your game run slower.
 #var camera = Camera.new()
-
+var big_list:Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +28,19 @@ func list_saved_games():
 #	print("applying global physics")
 
 ### We're using the documented defaults for a kinematic character from Godot's website. We edit it a bit to make sure it can be use for any object.
+
+### The object will need these variables to function
+
+#const GRAVITY = -24.8
+#var vel = Vector3()
+#const MAX_SPEED = 20
+#const JUMP_SPEED = 18
+#const ACCEL = 4.5
+
+#var dir = Vector3()
+
+#const DEACCEL= 16
+#const MAX_SLOPE_ANGLE = 40
 
 func process_movement(obj,delta):
 	obj.dir.y = 0
@@ -95,3 +108,36 @@ func process_input(obj,camera,delta):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# ----------------------------------
+
+func recursive_search(path,dict):
+	
+	var dir = Directory.new()
+	if dir.open(path) == OK:
+		dir.list_dir_begin(true,true)
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				if !dict.has(file_name):
+					dict[file_name] = {}
+					recursive_search(path+"/"+file_name,dict[file_name])
+			else:
+				if file_name.split(".")[-1] in ["mp3","ogg","MP3","OGG"]:
+					if !dict.has("songs"):
+						dict["songs"] = []
+					var item = {"title":file_name.split(".")[0],"url":path+"/"+file_name}
+					dict["songs"].append(item)
+				elif file_name.split(".")[-1] in ["png","jpg","JPEG","PNG","JPG"]:
+					
+					if !dict.has("pictures"):
+						dict["pictures"] = []
+					var item = {"title":file_name.split(".")[0],"url":path+"/"+file_name}
+					dict["pictures"].append(item)
+			file_name = dir.get_next()
+	else:
+		print("Couldnt find path for", path)
+	return 1
+
+func find_target(targets_list):
+	var targetIndex = randi() % len(targets_list.get_children())
+	var target = targets_list.get_child(targetIndex)
+	return target

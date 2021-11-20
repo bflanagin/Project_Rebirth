@@ -26,7 +26,9 @@ func _ready():
 #	pass
 
 func _on_signal(sig):
-	print("From Main Menu ", sig)
+	#print("From Main Menu ", sig)
+	if sig == "play":
+		$AudioStreamPlayer.stop()
 	emit_signal("intent",sig)
 
 
