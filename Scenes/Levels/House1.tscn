@@ -21,8 +21,7 @@
 [sub_resource type="NavigationMesh" id=48]
 vertices = PoolVector3Array( -2.54686, 0.992906, 2.82436, -3.44686, 0.992906, 3.12436, -3.44686, 0.992906, 3.72436, 4.05314, 0.992906, 3.72436, -0.446861, 0.592906, 3.72436, -3.44686, 0.592906, -3.47564, -3.44686, 0.592906, -1.67564, -2.54686, 0.592906, -1.37564, -1.94686, 0.592906, -2.57564, -1.94686, 0.592906, -2.57564, 4.05314, 0.592906, -2.87564, 4.05314, 1.39291, -3.77564, -3.44686, 0.592906, -3.47564, -0.446861, 1.39291, -3.59564, -1.94686, 0.592906, -3.53564, 4.05314, 0.992906, 3.72436, 4.05314, 0.592906, -0.77564, -1.34686, 0.592906, -0.77564, -2.54686, 0.992906, 2.82436, 4.05314, 1.59291, 2.22436, 4.05314, 1.59291, 0.724361, -2.14686, 0.592906, 1.62436, 1.36515, 0.592906, 1.00754, -1.34686, 0.592906, -0.77564, -1.94686, 0.592906, -2.57564, -2.54686, 0.592906, -1.37564, -2.54686, 0.992906, 2.82436, -2.14686, 0.592906, 1.62436, -2.54686, 0.592906, 1.42436 )
 polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 4 ), PoolIntArray( 4, 0, 3 ), PoolIntArray( 7, 6, 8 ), PoolIntArray( 8, 6, 5 ), PoolIntArray( 12, 14, 9 ), PoolIntArray( 9, 14, 13 ), PoolIntArray( 9, 13, 10 ), PoolIntArray( 10, 13, 11 ), PoolIntArray( 21, 22, 18 ), PoolIntArray( 18, 22, 15 ), PoolIntArray( 15, 22, 19 ), PoolIntArray( 19, 22, 20 ), PoolIntArray( 20, 22, 16 ), PoolIntArray( 16, 22, 17 ), PoolIntArray( 17, 22, 21 ), PoolIntArray( 26, 28, 27 ), PoolIntArray( 27, 28, 23 ), PoolIntArray( 23, 28, 25 ), PoolIntArray( 23, 25, 24 ) ]
-geometry/source_geometry_mode = 1
-geometry/source_group_name = "navmesh"
+geometry_source_geometry_mode = 1
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "House1_Cube"
@@ -717,7 +716,6 @@ navmesh = SubResource( 48 )
 transform = Transform( 0.529387, 0, 0, 0, 0.529387, 0, 0, 0, 0.529387, 0.21771, -7.60183e-05, 0.0129521 )
 cast_shadow = 0
 mesh = SubResource( 1 )
-material/0 = null
 
 [node name="static_collision" type="StaticBody" parent="Floor"]
 
@@ -778,7 +776,6 @@ shadow_enabled = true
 [node name="BathroomFloor " type="MeshInstance" parent="." groups=["navmesh"]]
 transform = Transform( 0.150294, 0, 0, 0, 0.529387, 0, 0, 0, 0.231464, -2.82889, -7.60183e-05, -6.11104 )
 mesh = SubResource( 3 )
-material/0 = null
 
 [node name="static_collision" type="StaticBody" parent="BathroomFloor "]
 
@@ -788,8 +785,6 @@ shape = SubResource( 4 )
 [node name="LeftWall " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, -4.27205, 0.088236, -1.85726 )
 mesh = SubResource( 5 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="LeftWall "]
 
@@ -799,8 +794,6 @@ shape = SubResource( 6 )
 [node name="RightWall " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, 4.4815, 0.088236, -1.85726 )
 mesh = SubResource( 7 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="RightWall "]
 
@@ -810,8 +803,6 @@ shape = SubResource( 8 )
 [node name="BackWall " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, 0.748007, 0.088236, -4.25634 )
 mesh = SubResource( 9 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="BackWall "]
 
@@ -821,8 +812,6 @@ shape = SubResource( 10 )
 [node name="BathroomBackWall  " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, -1.89398, 0.088236, -7.97196 )
 mesh = SubResource( 11 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="BathroomBackWall  "]
 
@@ -832,8 +821,6 @@ shape = SubResource( 12 )
 [node name="BathroomRightWall " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, -1.61522, 0.088236, -5.81202 )
 mesh = SubResource( 13 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="BathroomRightWall "]
 
@@ -843,8 +830,6 @@ shape = SubResource( 14 )
 [node name="FrontWall " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, 1.82032, 0.088236, 4.25152 )
 mesh = SubResource( 15 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="FrontWall "]
 
@@ -855,7 +840,6 @@ shape = SubResource( 16 )
 transform = Transform( 9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -2.27556 )
 use_in_baked_light = true
 mesh = SubResource( 17 )
-material/0 = null
 
 [node name="static_collision" type="StaticBody" parent="Bar"]
 
@@ -865,9 +849,6 @@ shape = SubResource( 18 )
 [node name="kitchen " type="MeshInstance" parent="." groups=["navmesh"]]
 transform = Transform( 9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -3.95595 )
 mesh = SubResource( 19 )
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="static_collision" type="StaticBody" parent="kitchen "]
 
@@ -877,24 +858,18 @@ shape = SubResource( 20 )
 [node name="Ceiling" type="MeshInstance" parent="."]
 transform = Transform( 0.596295, 0, 0, 0, 0.529387, 0, 0, 0, 0.550115, 0.21771, 3.02334, 0.0129521 )
 mesh = SubResource( 21 )
-material/0 = null
 
 [node name="Cube" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.235446, 0, 0, 0, 1, -2.88412, 0.23401, -4.38105 )
 mesh = SubResource( 22 )
-material/0 = null
 
 [node name="Window1_standard" type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -2.92558, 0.810116, 4.25152 )
 mesh = SubResource( 23 )
-material/0 = null
-material/1 = null
 
 [node name="FrontWall 002" type="MeshInstance" parent="Window1_standard"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851731, 0 )
 mesh = SubResource( 24 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="Window1_standard/FrontWall 002"]
 
@@ -909,14 +884,10 @@ shape = SubResource( 26 )
 [node name="largeWindow1 " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, 0.748007, 0.088236, -4.25634 )
 mesh = SubResource( 27 )
-material/0 = null
-material/1 = null
 
 [node name="smallWindow1  " type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, -1.89398, 0.088236, -7.97196 )
 mesh = SubResource( 28 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="smallWindow1  "]
 
@@ -926,14 +897,10 @@ shape = SubResource( 29 )
 [node name="Window1_standard001" type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -1.75709, 0.810116, 4.25152 )
 mesh = SubResource( 30 )
-material/0 = null
-material/1 = null
 
 [node name="FrontWall 001" type="MeshInstance" parent="Window1_standard001"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851736, 0 )
 mesh = SubResource( 31 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="Window1_standard001/FrontWall 001"]
 
@@ -948,14 +915,10 @@ shape = SubResource( 33 )
 [node name="Window1_standard002" type="MeshInstance" parent="."]
 transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -0.669186, 0.810116, 4.25152 )
 mesh = SubResource( 34 )
-material/0 = null
-material/1 = null
 
 [node name="FrontWall 003" type="MeshInstance" parent="Window1_standard002"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851746, 0 )
 mesh = SubResource( 35 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="Window1_standard002/FrontWall 003"]
 
@@ -971,14 +934,10 @@ shape = SubResource( 37 )
 [node name="Window1_standard003" type="MeshInstance" parent="."]
 transform = Transform( 6.31078e-08, 0.529387, 0.000351034, -0.529387, 6.31078e-08, 5.51713e-11, 7.70359e-12, -0.000245075, 0.758268, 4.48765, 0.810116, 2.2257 )
 mesh = SubResource( 38 )
-material/0 = null
-material/1 = null
 
 [node name="FrontWall 004" type="MeshInstance" parent="Window1_standard003"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851755, 0 )
 mesh = SubResource( 39 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="Window1_standard003/FrontWall 004"]
 
@@ -993,14 +952,10 @@ shape = SubResource( 41 )
 [node name="Window1_standard004" type="MeshInstance" parent="."]
 transform = Transform( 6.31078e-08, 0.529387, 0.000351034, -0.529387, 6.31078e-08, 5.51713e-11, 7.70359e-12, -0.000245075, 0.758268, 4.48765, 0.810116, -0.972389 )
 mesh = SubResource( 42 )
-material/0 = null
-material/1 = null
 
 [node name="FrontWall 005" type="MeshInstance" parent="Window1_standard004"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851755, 0 )
 mesh = SubResource( 43 )
-material/0 = null
-material/1 = null
 
 [node name="static_collision" type="StaticBody" parent="Window1_standard004/FrontWall 005"]
 
@@ -1017,7 +972,6 @@ shape = SubResource( 45 )
 [node name="kitchen 001" type="MeshInstance" parent="."]
 transform = Transform( 9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -3.95595 )
 mesh = SubResource( 46 )
-material/0 = null
 
 [node name="static_collision" type="StaticBody" parent="kitchen 001"]
 

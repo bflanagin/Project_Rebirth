@@ -121,23 +121,24 @@ func music_files(path,parent):
 				dirnum += 1
 			file_name = dir.get_next()
 		#print(Mistro.big_list["Music"].keys())
-		for artist in Mistro.big_list["Music"].keys():
-			for album in Mistro.big_list["Music"][artist]:
-				var aInstance = musicItem.instance()
-				randomize()
-				var a_rand_x = rand_range(-base_floor.shape.extents.x * 0.7,base_floor.shape.extents.x * 0.7)
-				randomize()
-				var a_rand_z = rand_range(-base_floor.shape.extents.z * 0.5,base_floor.shape.extents.z * 0.5)
-				randomize()
-				var a_rand_y = rand_range(-base_floor.shape.extents.y * 0.99,base_floor.shape.extents.y * 0.1)
-				var a_finalLocation = base_floor.translation 
-				a_finalLocation.x += a_rand_x 
-				a_finalLocation.y = base.get_node("Floor").translation.y + 0.5
-				a_finalLocation.z += a_rand_z
-				aInstance.translation = a_finalLocation
-				aInstance.url = album
-				parent.add_child(aInstance)
-				#print(finalLocation)
+		if Mistro.big_list.has("Music"):
+			for artist in Mistro.big_list["Music"].keys():
+				for album in Mistro.big_list["Music"][artist]:
+					var aInstance = musicItem.instance()
+					randomize()
+					var a_rand_x = rand_range(-base_floor.shape.extents.x * 0.7,base_floor.shape.extents.x * 0.7)
+					randomize()
+					var a_rand_z = rand_range(-base_floor.shape.extents.z * 0.5,base_floor.shape.extents.z * 0.5)
+					randomize()
+					var a_rand_y = rand_range(-base_floor.shape.extents.y * 0.99,base_floor.shape.extents.y * 0.1)
+					var a_finalLocation = base_floor.translation 
+					a_finalLocation.x += a_rand_x 
+					a_finalLocation.y = base.get_node("Floor").translation.y + 0.5
+					a_finalLocation.z += a_rand_z
+					aInstance.translation = a_finalLocation
+					aInstance.url = album
+					parent.add_child(aInstance)
+					#print(finalLocation)
 				
 				
 		#play_mp3(Mistro.big_list["Music"]["christafari"]["wordsoundpower"]["songs"][0]["url"])

@@ -7,3 +7,9 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+
+# file type ignores
+*.mp3
+*.ogg
+*.wav
+*.import

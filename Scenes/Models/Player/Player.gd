@@ -33,8 +33,10 @@ var _is_sprinting_input := false
 var _is_jumping_input := false
 
 onready var melee = $Head/MeleeActionRange
+onready var call = $Head/CallRange
 
 var targeting = null
+var target_lock = false
 var grabable = []
 ##################################################
 
@@ -63,17 +65,29 @@ func _process(_delta: float) -> void:
 				if _free_hand():
 					pick_up(targeting)
 			elif "Allonian" in targeting.get_groups():
+				target_lock = true
 				targeting.go_to_player()
 				targeting.connect("action",self,"_on_character_action")
 			
 	if Input.is_action_pressed("Action_2"):
-		print(targeting.url)
+		if targeting:
+			print(targeting.url)
 
 
 # Called every physics tick. 'delta' is constant
 func _physics_process(delta: float) -> void:
+	if call.is_colliding():
+		if targeting != call.get_collider() and !target_lock:
+			if targeting:
+				targeting.targeted(self,false)
+				targeting = null
+			else:
+				for g in ["Allonian"]:
+					if g in call.get_collider().get_groups():
+						targeting = call.get_collider()
+						targeting.targeted(self,true)
 	if melee.is_colliding():
-		if targeting != melee.get_collider():
+		if targeting != melee.get_collider() and !target_lock :
 			if targeting:
 				targeting.targeted(self,false)
 				targeting = null
@@ -261,4 +275,6 @@ func _on_character_action(action):
 			print(" ready for command")
 			can_move = false
 			$AnimationPlayer.play("Crouch")
+			targeting.get_node("Camera").make_current()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pass

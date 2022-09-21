@@ -122,6 +122,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514532, -0.762608, -1.00081 
 [node name="LeftHand" type="Position3D" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583649, -0.759482, -1.11365 )
 
+[node name="CallRange" type="RayCast" parent="Head"]
+enabled = true
+cast_to = Vector3( 0, 0, -10 )
+
 [node name="Grabable" type="Area" parent="."]
 visible = false
 
