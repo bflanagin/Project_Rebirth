@@ -1,4 +1,4 @@
-extends RigidBody
+extends RigidBody3D
 
 
 # Declare member variables here. Examples:
@@ -26,7 +26,7 @@ func picked_up(_by):
 	#print("AAAWWWWW!!!!!")
 	var copy = self.duplicate()
 	copy.copy_of = self
-	copy.mode = RigidBody.MODE_STATIC
-	copy.get_node("CollisionShape").disabled = true
+	copy.mode = RigidBody3D.FREEZE_MODE_STATIC
+	copy.get_node("CollisionShape3D").disabled = true
 	self.hide()
 	return self

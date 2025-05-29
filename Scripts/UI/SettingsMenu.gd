@@ -1,17 +1,17 @@
-extends Spatial
+extends Node3D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var menuType = "CenterMenu"
+@export var menuType = "CenterMenu"
 
 signal intent(action)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var themenu = load("res://Scenes/UI/Elements/Settings/"+str(menuType)+".tscn")
-	var menuInstance = themenu.instance()
-	menuInstance.connect("intent",self,"_on_signal")
+	var menuInstance = themenu.instantiate()
+	menuInstance.connect("intent", Callable(self, "_on_signal"))
 
 	add_child(menuInstance)
 	#$Camera.make_current()

@@ -20,7 +20,7 @@ func play_mp3(url):
 	var playmp3 = AudioStreamMP3.new()
 	var file = File.new()
 	file.open(url,File.READ)
-	playmp3.set_data(file.get_buffer(file.get_len()))
+	playmp3.set_data(file.get_buffer(file.get_length()))
 	$AudioStreamPlayer.stream = playmp3
 	$AudioStreamPlayer.play()
 

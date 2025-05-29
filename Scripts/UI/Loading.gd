@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 
 # Declare member variables here. Examples:
@@ -9,7 +9,7 @@ var player_data = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().connect("scene_changed",self,"_on_scene_changed")
+	get_parent().connect("scene_changed", Callable(self, "_on_scene_changed"))
 	pass # Replace with function body.
 
 
@@ -20,7 +20,7 @@ func _ready():
 
 func _on_Loading_visibility_changed():
 	if(visible):
-		$Camera.current = true
+		$Camera3D.current = true
 		$Timer.start()
 		get_parent().get_node("SettingsMenu").hide()
 		get_parent().get_node("MainMenu").hide()
@@ -34,7 +34,7 @@ func _load():
 		"mainMenu":
 			pass
 		_:
-			var newScene = load(new_scene).instance()
+			var newScene = load(new_scene).instantiate()
 			load_to.add_child(newScene)
 			load_to.remove_old_scene(newScene)
 			

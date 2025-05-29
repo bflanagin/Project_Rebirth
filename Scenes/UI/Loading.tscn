@@ -4,11 +4,11 @@
 [ext_resource path="res://Scenes/UI/Loading.tres" type="Environment" id=2]
 [ext_resource path="res://Scripts/UI/Loading.gd" type="Script" id=3]
 
-[node name="Loading" type="Spatial"]
+[node name="Loading" type="Node3D"]
 script = ExtResource( 3 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.94904 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.94904 )
 environment = ExtResource( 2 )
 
 [node name="logo" parent="." instance=ExtResource( 1 )]

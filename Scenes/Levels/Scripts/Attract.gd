@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 
 # Declare member variables here. Examples:
@@ -8,7 +8,7 @@ var location = "main"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().connect("selection",self,"_on_selection")
+	get_parent().connect("selection", Callable(self, "_on_selection"))
 	pass # Replace with function body.
 
 

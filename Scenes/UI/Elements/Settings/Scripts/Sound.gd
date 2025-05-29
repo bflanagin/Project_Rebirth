@@ -11,7 +11,7 @@ func _ready():
 	$HBoxContainer/VBoxContainer/VBoxContainer/Master/MasterVolume.value = AudioServer.get_bus_volume_db(0)
 	$HBoxContainer/VBoxContainer/VBoxContainer/Music/MusicVolume.value = AudioServer.get_bus_volume_db(1)
 	$HBoxContainer/VBoxContainer/VBoxContainer/SFX/SFXVolume.value = AudioServer.get_bus_volume_db(2)
-	rect_min_size = get_parent().rect_size
+	custom_minimum_size = get_parent().size
 	#load_sound_devices()
 	pass # Replace with function body.
 
@@ -58,7 +58,7 @@ func _on_MasterVolume_value_changed(value):
 	pass # Replace with function body.
 
 func load_sound_devices():
-	for device in AudioServer.get_device_list():
+	for device in AudioServer.get_output_device_list():
 		var chbx = CheckButton.new()
 		chbx.name = str(device)
 		chbx.text = str(device).split(".")

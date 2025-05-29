@@ -1,10 +1,9 @@
-[gd_resource type="Environment" load_steps=2 format=2]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://b5wiqct6fo5db"]
 
-[sub_resource type="ProceduralSky" id=1]
+[sub_resource type="Sky" id="1"]
 
 [resource]
 background_mode = 2
-background_sky = SubResource( 1 )
-fog_enabled = true
-ss_reflections_enabled = true
+sky = SubResource("1")
 ssao_enabled = true
+fog_enabled = true

@@ -1,4 +1,4 @@
-extends RigidBody
+extends RigidBody3D
 
 var image_path
 # Declare member variables here. Examples:
@@ -8,12 +8,12 @@ var image_path
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var material = SpatialMaterial.new()
+	var material = StandardMaterial3D.new()
 	var img = Image.new()
 	var imgTexture = ImageTexture.new()
 	var file = File.new()
 	file.open(image_path, File.READ)
-	var data = file.get_buffer(file.get_len())
+	var data = file.get_buffer(file.get_length())
 	file.close()
 	var image_size = Vector2(0,0)
 	var default_size = Vector2(1024,768)
@@ -36,7 +36,7 @@ func _ready():
 
 		
 	material.albedo_texture = imgTexture
-	$Cube011.set_surface_material(0,material)
+	$Cube011.set_surface_override_material(0,material)
 	pass # Replace with function body.
 
 

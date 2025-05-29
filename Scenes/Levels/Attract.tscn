@@ -8,14 +8,14 @@
 [sub_resource type="Animation" id=3]
 resource_name = "LoadGame"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Camera:rotation_degrees")
+tracks/0/path = NodePath("Camera3D:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 1.36013, 83.9346, -1.11159 ), Vector3( 1.36013, -35.8223, -1.11159 ) ]
 }
@@ -23,14 +23,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Camera:rotation_degrees")
+tracks/0/path = NodePath("Camera3D:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( 1.36013, 83.9346, -1.11159 ) ]
 }
@@ -38,23 +38,28 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=1]
 resource_name = "Settings"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Camera:rotation_degrees")
+tracks/0/path = NodePath("Camera3D:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 1.36013, 83.9346, -1.11159 ), Vector3( 1.36013, 174.999, -1.11159 ) ]
 }
 
-[node name="Attract" type="Spatial"]
+[node name="Attract" type="Node3D"]
 script = ExtResource( 4 )
 
+<<<<<<< HEAD
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.105186, 0.025649, 0.994122, -0.0193942, 0.99953, -0.0237365, -0.994264, -0.0167835, 0.105634, 1.58627, 0.911381, -3.71947 )
+=======
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D( 0.105186, 0.025649, 0.994122, -0.0193942, 0.99953, -0.0237365, -0.994264, -0.0167835, 0.105634, 1.58627, 0.911381, -3.71947 )
+>>>>>>> eac3146 (no clue whats going on)
 current = true
 fov = 23.5466
 size = 16.0
@@ -63,20 +68,20 @@ size = 16.0
 environment = ExtResource( 2 )
 
 [node name="logo" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39561, -3.17678, 11.028 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39561, -3.17678, 11.028 )
 visible = false
 
 [node name="NewLogo" parent="logo" index="0"]
 visible = false
 
 [node name="NewLogo2" parent="logo" index="1"]
-transform = Transform( 0.00948194, -0.000486469, -2.28193e-10, 0, 7.74468e-11, -0.0102257, 0.00382845, 0.00120484, 5.65167e-10, 0.756328, 3.82604, -18.0541 )
+transform = Transform3D( 0.00948194, -0.000486469, -2.28193e-10, 0, 7.74468e-11, -0.0102257, 0.00382845, 0.00120484, 5.65167e-10, 0.756328, 3.82604, -18.0541 )
 
 [node name="Text001" parent="logo" index="2"]
-transform = Transform( 2.20567, -0.890565, -5.30818e-08, 0, 1.4178e-07, -2.37867, 0.890565, 2.20567, 1.31468e-07, 1.12154, -3.57002, -15.5202 )
+transform = Transform3D( 2.20567, -0.890565, -5.30818e-08, 0, 1.4178e-07, -2.37867, 0.890565, 2.20567, 1.31468e-07, 1.12154, -3.57002, -15.5202 )
 
 [node name="Cube" parent="logo" index="4"]
-transform = Transform( -5.53081e-07, -0.720235, -1.78381, -1.92372, 1.14663e-07, 5.15983e-07, -1.61485e-07, 1.78381, -0.720235, 3.41933, 5.23121, -16.7092 )
+transform = Transform3D( -5.53081e-07, -0.720235, -1.78381, -1.92372, 1.14663e-07, 5.15983e-07, -1.61485e-07, 1.78381, -0.720235, 3.41933, 5.23121, -16.7092 )
 
 [node name="countdown" parent="." instance=ExtResource( 3 )]
 

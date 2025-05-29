@@ -1,4 +1,4 @@
-extends KinematicBody
+extends CharacterBody3D
 
 var head = preload("res://Scenes/Models/Components/Series1/Heads/head1.tscn")
 var eyes = preload("res://Scenes/Models/Components/Series1/Eyes/eyes7.tscn")
@@ -22,13 +22,13 @@ var awaiting_command = false
 
 signal action(act)
 ## Navigation for AI and unit command (Might move to Mistro)
-export var navigationNode = ""
-onready var camera = get_node(navigationNode+"/Player/Head/Camera")
-onready var navi = get_node(navigationNode)
+@export var navigationNode = ""
+@onready var camera = get_node(navigationNode+"/Player/Head/Camera3D")
+@onready var navi = get_node(navigationNode)
 var path = []
 var show_path = true
 var camrot = 0.0
-var m = SpatialMaterial.new()
+var m = StandardMaterial3D.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,14 +49,14 @@ func _physics_process(delta):
 	if !awaiting_command and !target:
 		 target = Mistro.find_target(navi.get_node("Files"))
 		 $change_mind.start()
-		 path = navi.get_simple_path(self.translation, target.translation, true)
+		 path = navi.get_simple_path(self.position, target.position, true)
 	if path.size() > 0:
-		if path[0] != self.translation:
+		if path[0] != self.position:
 			state = "movement"
 		# Direction is the difference between where we are now
 		# and where we want to go.
 		var destination = path[0]
-		dir = destination - self.translation
+		dir = destination - self.position
 
 		# If the next node is closer than we intend to 'step', then
 		# take a smaller step. Otherwise we would go past it and
@@ -77,7 +77,7 @@ func _physics_process(delta):
 		if dir:
 			# Direction is relative, so apply it to the robot's location to
 			# get a point we can actually look at.
-			var look_at_point = self.translation + dir.normalized()
+			var look_at_point = self.position + dir.normalized()
 			# Make the robot look at the point.
 			self.look_at(look_at_point, Vector3.UP)
 	elif path.size() == 0 && !state in ["starting","stopped","resting"]:
@@ -123,7 +123,7 @@ func _on_AnimationPlayer_animation_started(anim_name):
 func _on_change_mind_timeout():
 	target = Mistro.find_target(navi.get_node("Files"))
 	$change_mind.start()
-	path = navi.get_simple_path(self.translation, target.translation, true)
+	path = navi.get_simple_path(self.position, target.position, true)
 	pass # Replace with function body.
 
 
@@ -143,7 +143,7 @@ func go_to_player():
 	target = player
 	$change_mind.stop()
 	awaiting_command = true
-	path = navi.get_simple_path(self.translation, target.translation, true)
+	path = navi.get_simple_path(self.position, target.position, true)
 
 func targeted(by,currently):
 	if currently == true:
@@ -151,11 +151,11 @@ func targeted(by,currently):
 	pass
 
 func build_body(h,e):
-	var he = h.instance()
-	var ey = e.instance()
+	var he = h.instantiate()
+	var ey = e.instantiate()
 	ey.transform = he.get_node("eye_position").transform
 	he.get_node("eye_position").add_child(ey)
 	#he.rotate(Vector3(1,1,1),90)
-	$base1/Armature/Skeleton.add_child(he)
-	he.transform = $base1/Armature/Skeleton.get_bone_pose(1)
-	$base1/Armature/Skeleton.bind_child_node_to_bone(1,he)
+	$base1/Armature/Skeleton3D.add_child(he)
+	he.transform = $base1/Armature/Skeleton3D.get_bone_pose(1)
+	$base1/Armature/Skeleton3D.bind_child_node_to_bone(1,he)

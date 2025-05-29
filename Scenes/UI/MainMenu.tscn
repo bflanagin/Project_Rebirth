@@ -4,16 +4,16 @@
 [ext_resource path="res://Assets/Sounds/BGM/FugueForOneSyntheticHeart_NoPerc(loop)(106).wav" type="AudioStream" id=2]
 
 [sub_resource type="ViewportTexture" id=1]
-viewport_path = NodePath("Viewport")
+viewport_path = NodePath("SubViewport")
 
-[node name="MainMenu" type="Spatial"]
+[node name="MainMenu" type="Node3D"]
 script = ExtResource( 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 0.887992, 0, 0.459859, 0, 1, 0, -0.459859, 0, 0.887992, -9.14741, -1.24544, 2.16399 )
+transform = Transform3D( 0.887992, 0, 0.459859, 0, 1, 0, -0.459859, 0, 0.887992, -9.14741, -1.24544, 2.16399 )
 texture = SubResource( 1 )
 
-[node name="Viewport" type="Viewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2( 800, 600 )
 transparent_bg = true
 handle_input_locally = false

@@ -60,10 +60,16 @@ func process_movement(obj,delta):
 	else:
 		accel =obj.DEACCEL
 
-	hvel = hvel.linear_interpolate(target, accel * delta)
+	hvel = hvel.lerp(target, accel * delta)
 	obj.vel.x = hvel.x
 	obj.vel.z = hvel.z
-	obj.vel = obj.move_and_slide(obj.vel, Vector3(0, 1, 0), 0.05, 4, deg2rad(obj.MAX_SLOPE_ANGLE))
+	obj.set_velocity(obj.vel)
+	obj.set_up_direction(Vector3(0, 1, 0))
+	obj.set_floor_stop_on_slope_enabled(0.05)
+	obj.set_max_slides(4)
+	obj.set_floor_max_angle(deg_to_rad(obj.MAX_SLOPE_ANGLE))
+	obj.move_and_slide()
+	obj.vel = obj.velocity
 	
 
 #### We're using the documented defaults for a kinematic character from Godot's website. Edited for use in Mistro instead of needing to be copied and pasted every node.
@@ -111,9 +117,9 @@ func process_input(obj,camera,delta):
 
 func recursive_search(path,dict):
 	
-	var dir = Directory.new()
-	if dir.open(path) == OK:
-		dir.list_dir_begin(true,true)
+	var dir = DirAccess.open(path)
+	if dir == OK:
+		dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name = dir.get_next()
 		while file_name != "":
 			if dir.current_is_dir():

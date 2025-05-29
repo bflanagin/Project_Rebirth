@@ -1,4 +1,4 @@
-extends KinematicBody
+extends CharacterBody3D
 
 const GRAVITY = -24.8
 var vel = Vector3()
@@ -18,7 +18,7 @@ var MOUSE_SENSITIVITY = 0.05
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	camera = $RotationHelper/Camera
+	camera = $RotationHelper/Camera3D
 	rotation_helper = $RotationHelper
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -34,8 +34,8 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation_helper.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
-		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+		rotation_helper.rotate_x(deg_to_rad(event.relative.y * MOUSE_SENSITIVITY))
+		self.rotate_y(deg_to_rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)

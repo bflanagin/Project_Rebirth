@@ -17,7 +17,7 @@ func _ready():
 		var linked = load("res://Scenes/UI/Elements/Settings/LinkedAccounts.tscn")
 		var graphics = load("res://Scenes/UI/Elements/Settings/Graphics.tscn")
 		var display = load("res://Scenes/UI/Elements/Settings/Display.tscn")
-		submenus = [display.instance(),graphics.instance(),linked.instance(),sound.instance()]
+		submenus = [display.instantiate(),graphics.instantiate(),linked.instantiate(),sound.instantiate()]
 		$HSplitContainer/SettingsPane.add_child(submenus[0])
 	#$VBoxContainer/TextureRect/Title.text = get_node("../../").appname
 	pass # Replace with function body.
@@ -44,7 +44,7 @@ func find_buttons():
 func find_button(button):
 	if button is Button:
 		#if button.name in ["Play","Load","Quit","Back","Settings"]:
-		button.connect("pressed",self,"_on_pressed",[button.name])
+		button.connect("pressed", Callable(self, "_on_pressed").bind(button.name))
 			
 func _on_pressed(name):
 	match name:
@@ -69,33 +69,33 @@ func _on_pressed(name):
 			show_submenu(name)
 
 func location_settings():
-	var windowSize = OS.window_size
+	var windowSize = get_window().size
 	match name:
 		"CenterMenu":
-			get_child(0).rect_min_size.y = windowSize.y * 0.8
-			get_child(0).rect_size.y = windowSize.y * 0.8
-			get_child(0).rect_min_size.x = windowSize.x * 0.7
-			get_child(0).rect_size.x = windowSize.x * 0.7
-			set_anchors_and_margins_preset(Control.PRESET_CENTER)
+			get_child(0).custom_minimum_size.y = windowSize.y * 0.8
+			get_child(0).size.y = windowSize.y * 0.8
+			get_child(0).custom_minimum_size.x = windowSize.x * 0.7
+			get_child(0).size.x = windowSize.x * 0.7
+			set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 		"RightMenu":
-			set_anchors_and_margins_preset(Control.PRESET_RIGHT_WIDE)
-			get_child(0).rect_min_size.x = windowSize.x * 0.20
-			get_child(0).rect_size.x = windowSize.x * 0.20
+			set_anchors_and_offsets_preset(Control.PRESET_RIGHT_WIDE)
+			get_child(0).custom_minimum_size.x = windowSize.x * 0.20
+			get_child(0).size.x = windowSize.x * 0.20
 			
 		"LeftMenu":
-			set_anchors_and_margins_preset(Control.PRESET_LEFT_WIDE)
-			get_child(0).rect_min_size.x = windowSize.x * 0.20
-			get_child(0).rect_size.x = windowSize.x * 0.20
+			set_anchors_and_offsets_preset(Control.PRESET_LEFT_WIDE)
+			get_child(0).custom_minimum_size.x = windowSize.x * 0.20
+			get_child(0).size.x = windowSize.x * 0.20
 		"FullMenu":
-			set_anchors_and_margins_preset(Control.PRESET_WIDE)
-			get_child(0).rect_min_size.y = windowSize.y * 0.9
-			get_child(0).rect_size.y = windowSize.y * 0.9
-			get_child(0).rect_min_size.x = windowSize.x * 0.9
-			get_child(0).rect_size.x = windowSize.x * 0.9
+			set_anchors_and_offsets_preset(Control.PRESET_WIDE)
+			get_child(0).custom_minimum_size.y = windowSize.y * 0.9
+			get_child(0).size.y = windowSize.y * 0.9
+			get_child(0).custom_minimum_size.x = windowSize.x * 0.9
+			get_child(0).size.x = windowSize.x * 0.9
 		
 	if get_parent().name == "SettingsMenu":
-		$HSplitContainer/options.rect_min_size.x =$HSplitContainer.rect_size.x * 0.2
-		$HSplitContainer/options.rect_size.x = $HSplitContainer.rect_size.x * 0.2
+		$HSplitContainer/options.custom_minimum_size.x =$HSplitContainer.size.x * 0.2
+		$HSplitContainer/options.size.x = $HSplitContainer.size.x * 0.2
 			
 func show_submenu(menu):
 	#print("Looking for submenu ",menu)

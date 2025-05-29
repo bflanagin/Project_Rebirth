@@ -9,38 +9,38 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 170.0
-margin_bottom = 154.0
+offset_right = 170.0
+offset_bottom = 154.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 170.0
-margin_bottom = 154.0
+offset_right = 170.0
+offset_bottom = 154.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_right = 170.0
-margin_bottom = 14.0
+offset_right = 170.0
+offset_bottom = 14.0
 text = "Graphics"
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 170.0
-margin_bottom = 22.0
+offset_top = 18.0
+offset_right = 170.0
+offset_bottom = 22.0
 
 [node name="CheckButton" type="CheckButton" parent="HBoxContainer/VBoxContainer"]
-margin_top = 26.0
-margin_right = 170.0
-margin_bottom = 66.0
+offset_top = 26.0
+offset_right = 170.0
+offset_bottom = 66.0
 text = "Depth of Field"
 
 [node name="CheckButton2" type="CheckButton" parent="HBoxContainer/VBoxContainer"]
-margin_top = 70.0
-margin_right = 170.0
-margin_bottom = 110.0
+offset_top = 70.0
+offset_right = 170.0
+offset_bottom = 110.0
 text = "Shadows"
 
 [node name="CheckButton3" type="CheckButton" parent="HBoxContainer/VBoxContainer"]
-margin_top = 114.0
-margin_right = 170.0
-margin_bottom = 154.0
+offset_top = 114.0
+offset_right = 170.0
+offset_bottom = 154.0
 text = "Motion Blur"

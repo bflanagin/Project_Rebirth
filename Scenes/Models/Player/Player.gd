@@ -1,16 +1,16 @@
-extends KinematicBody
+extends CharacterBody3D
 
 ###################-VARIABLES-####################
 
 signal action(act,target)
 # Camera
-export(float) var mouse_sensitivity = 8.0
-export(NodePath) var head_path = "Head"
-export(NodePath) var cam_path = "Head/Camera"
-export(float) var FOV = 80.0
+@export var mouse_sensitivity: float = 8.0
+@export var head_path: NodePath = "Head"
+@export var cam_path: NodePath = "Head/Camera3D"
+@export var FOV: float = 80.0
 var mouse_axis := Vector2()
-onready var head: Spatial = get_node(head_path)
-onready var cam: Camera = get_node(cam_path)
+@onready var head: Node3D = get_node(head_path)
+@onready var cam: Camera3D = get_node(cam_path)
 # Move
 var can_move = true
 var velocity := Vector3()
@@ -20,20 +20,25 @@ var snap := Vector3()
 var sprint_enabled := true
 var sprinting := false
 # Walk
-const FLOOR_MAX_ANGLE: float = deg2rad(46.0)
-export(float) var gravity = 30.0
-export(int) var walk_speed = 5
-export(int) var sprint_speed = 16
-export(int) var acceleration = 8
-export(int) var deacceleration = 10
-export(float, 0.0, 1.0, 0.05) var air_control = 0.3
-export(int) var jump_height = 3
+const FLOOR_MAX_ANGLE: float = deg_to_rad(46.0)
+@export var gravity: float = 30.0
+@export var walk_speed: int = 5
+@export var sprint_speed: int = 16
+@export var acceleration: int = 8
+@export var deacceleration: int = 10
+@export var air_control = 0.3 # (float, 0.0, 1.0, 0.05)
+@export var jump_height: int = 3
 var _speed: int
 var _is_sprinting_input := false
 var _is_jumping_input := false
 
+<<<<<<< HEAD
 onready var melee = $Head/MeleeActionRange
 onready var call = $Head/CallRange
+=======
+@onready var melee = $Head/MeleeActionRange
+@onready var call = $Head/CallRange
+>>>>>>> eac3146 (no clue whats going on)
 
 var targeting = null
 var target_lock = false
@@ -67,7 +72,7 @@ func _process(_delta: float) -> void:
 			elif "Allonian" in targeting.get_groups():
 				target_lock = true
 				targeting.go_to_player()
-				targeting.connect("action",self,"_on_character_action")
+				targeting.connect("action", Callable(self, "_on_character_action"))
 			
 	if Input.is_action_pressed("Action_2"):
 		if targeting:
@@ -141,7 +146,14 @@ func walk(delta: float) -> void:
 	
 	accelerate(delta)
 	
-	velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP, true, 4, FLOOR_MAX_ANGLE)
+	set_velocity(velocity)
+	# TODOConverter3To4 looks that snap in Godot 4 is float, not vector like in Godot 3 - previous value `snap`
+	set_up_direction(Vector3.UP)
+	set_floor_stop_on_slope_enabled(true)
+	set_max_slides(4)
+	set_floor_max_angle(FLOOR_MAX_ANGLE)
+	move_and_slide()
+	velocity = velocity
 	_is_jumping_input = false
 	_is_sprinting_input = false
 
@@ -155,8 +167,8 @@ func camera_rotation() -> void:
 		
 		mouse_axis = Vector2()
 		
-		rotate_y(deg2rad(horizontal))
-		head.rotate_x(deg2rad(vertical))
+		rotate_y(deg_to_rad(horizontal))
+		head.rotate_x(deg_to_rad(vertical))
 		
 		# Clamp mouse rotation
 		var temp_rot: Vector3 = head.rotation_degrees
@@ -196,7 +208,7 @@ func accelerate(delta: float) -> void:
 		_temp_accel *= air_control
 	
 	# Interpolation
-	_temp_vel = _temp_vel.linear_interpolate(_target, _temp_accel * delta)
+	_temp_vel = _temp_vel.lerp(_target, _temp_accel * delta)
 	
 	velocity.x = _temp_vel.x
 	velocity.z = _temp_vel.z
@@ -254,7 +266,7 @@ func pick_up(target):
 			#print(item.url," in ",free_hand.name)
 			free_hand.add_child(item)
 			#print(free_hand.get_children())
-			item.translation = Vector3(0,0,0)
+			item.position = Vector3(0,0,0)
 			
 			item.show()
 	#else:
@@ -275,6 +287,10 @@ func _on_character_action(action):
 			print(" ready for command")
 			can_move = false
 			$AnimationPlayer.play("Crouch")
+<<<<<<< HEAD
 			targeting.get_node("Camera").make_current()
+=======
+			targeting.get_node("Camera3D").make_current()
+>>>>>>> eac3146 (no clue whats going on)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pass

@@ -4,11 +4,11 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var appname = "game"
+@export var appname = "game"
 signal selection(sig)
 signal scene_changed()
 var loadingScreenFile = preload("res://Scenes/UI/Loading.tscn")
-var loadingScreen = loadingScreenFile.instance()
+var loadingScreen = loadingScreenFile.instantiate()
 var oldScene
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,9 +25,9 @@ func _ready():
 # This loads the first scenes needed to create a game. 
 func _on_first_load():
 	appname = "V0.01"
-	var attract = load("res://Scenes/Levels/Attract.tscn").instance()
-	var mainMenu = load("res://Scenes/UI/MainMenu.tscn").instance()
-	var settingsMenu = load("res://Scenes/UI/SettingsMenu.tscn").instance()
+	var attract = load("res://Scenes/Levels/Attract.tscn").instantiate()
+	var mainMenu = load("res://Scenes/UI/MainMenu.tscn").instantiate()
+	var settingsMenu = load("res://Scenes/UI/SettingsMenu.tscn").instantiate()
 	settingsMenu.menuType = "CenterMenu"
 	
 	mainMenu.menuType = "LeftMenu"
@@ -35,8 +35,8 @@ func _on_first_load():
 	add_child(settingsMenu)
 	add_child(attract)
 	
-	mainMenu.connect("intent",self,"_on_menu_signal")
-	settingsMenu.connect("intent",self,"_on_menu_signal")
+	mainMenu.connect("intent", Callable(self, "_on_menu_signal"))
+	settingsMenu.connect("intent", Callable(self, "_on_menu_signal"))
 	get_node("SettingsMenu").hide()
 	get_node("Loading").hide()
 	oldScene = attract

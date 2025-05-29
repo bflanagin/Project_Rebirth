@@ -1,93 +1,78 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://dqyyfhihby2fr"]
 
-[ext_resource path="res://Scenes/Models/Player/PlayerTemplate.tscn" type="PackedScene" id=1]
-[ext_resource path="res://default_env.tres" type="Environment" id=2]
-[ext_resource path="res://Scenes/Levels/Scripts/TestGround.gd" type="Script" id=3]
+[ext_resource type="PackedScene" path="res://Scenes/Models/Player/PlayerTemplate.tscn" id="1"]
+[ext_resource type="Environment" uid="uid://b5wiqct6fo5db" path="res://default_env.tres" id="2"]
+[ext_resource type="Script" uid="uid://b2qb50bkkbmdi" path="res://Scenes/Levels/Scripts/TestGround.gd" id="3"]
 
-[sub_resource type="CubeMesh" id=1]
-size = Vector3( 1000, 0, 1000 )
+[sub_resource type="BoxMesh" id="1"]
+size = Vector3(1000, 0, 1000)
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.478431, 0.537255, 0.317647, 1 )
-metallic_specular = 0.0
+[sub_resource type="ConvexPolygonShape3D" id="3"]
+points = PackedVector3Array(-500, 0, 500, 500, 0, -500, 500, 0, 500, -500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 500, -500, 0, -500, 500, 0, 500, -500, 0, -500, 500, 0, -500, -500, 0, 500, 500, 0, 500, -500, 0, -500, 500, 0, -500, -500, 0, 500, 500, 0, 500, -500, 0, 500, -500, 0, 500, 500, 0, 500, 500, 0, -500, -500, 0, -500, -500, 0, -500, 500, 0, -500)
 
-[sub_resource type="ConvexPolygonShape" id=3]
-points = PoolVector3Array( -500, 0, 500, 500, 0, -500, 500, 0, 500, -500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 500, -500, 0, -500, 500, 0, 500, -500, 0, -500, 500, 0, -500, -500, 0, 500, 500, 0, 500, -500, 0, -500, 500, 0, -500, -500, 0, 500, 500, 0, 500, -500, 0, 500, -500, 0, 500, 500, 0, 500, 500, 0, -500, -500, 0, -500, -500, 0, -500, 500, 0, -500 )
+[sub_resource type="StandardMaterial3D" id="4"]
+albedo_color = Color(0.137255, 0.427451, 0.0470588, 1)
 
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.137255, 0.427451, 0.0470588, 1 )
+[sub_resource type="BoxShape3D" id="5"]
+size = Vector3(10000, 100, 2)
 
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 5000, 50, 1 )
-
-[sub_resource type="GIProbeData" id=6]
-bounds = AABB( -5000, -100, -5000, 10000, 200, 10000 )
-cell_size = 39.0625
-to_cell_xform = Transform( 0.0256, 0, 0, 0, 0.0256, 0, 0, 0, 0.0256, 128, 2.56, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 8, 256, 1, 0, 1134948878, 0, -1086410401, -1087714176, 1119534637, -2147483648, 1061073247, 1059769472, 1132367758, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
-dynamic_range = 4
+[sub_resource type="VoxelGIData" id="6"]
+dynamic_range = 4.0
 energy = 0.5
-bias = 1.5
 normal_bias = 0.505
 propagation = 0.7
 
-[node name="TestGround" type="Spatial"]
-script = ExtResource( 3 )
+[node name="TestGround" type="Node3D"]
+script = ExtResource("3")
 
-[node name="Ground" type="StaticBody" parent="." groups=["Ground"]]
+[node name="Ground" type="StaticBody3D" parent="." groups=["Ground"]]
 collision_layer = 519
 
-[node name="MeshInstance" type="MeshInstance" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681, 0.05, 0.801 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681, 0.05, 0.801)
+mesh = SubResource("1")
 
-[node name="CollisionShape2" type="CollisionShape" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681, 0, 0.801 )
-shape = SubResource( 3 )
+[node name="CollisionShape2" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681, 0, 0.801)
+shape = SubResource("3")
 
-[node name="CSGBox" type="CSGBox" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0 )
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 visible = false
-width = 500.0
-height = 1.0
-depth = 500.0
-material = SubResource( 4 )
+size = Vector3(500, 1, 500)
+material = SubResource("4")
 
-[node name="PlayerTemplate" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.40631, 0 )
+[node name="PlayerTemplate" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.40631, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 2 )
+environment = ExtResource("2")
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.744894, 0.667183, 0, -0.667183, -0.744894, 0, 85.2791, 0 )
-light_bake_mode = 2
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.744894, 0.667183, 0, -0.667183, -0.744894, 0, 85.2791, 0)
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.0545, 0 )
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.0545, 0)
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 495.503 )
-shape = SubResource( 5 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 495.503)
+shape = SubResource("5")
 
-[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5000 )
-shape = SubResource( 5 )
+[node name="CollisionShape2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5000)
+shape = SubResource("5")
 
-[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5000, 0, -0.1 )
-shape = SubResource( 5 )
+[node name="CollisionShape3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5000, 0, -0.1)
+shape = SubResource("5")
 
-[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -491.326, 0, -0.0997521 )
-shape = SubResource( 5 )
+[node name="CollisionShape4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -491.326, 0, -0.0997521)
+shape = SubResource("5")
 
-[node name="GIProbe" type="GIProbe" parent="."]
+[node name="VoxelGI" type="VoxelGI" parent="."]
 subdiv = 2
-extents = Vector3( 5000, 100, 5000 )
-energy = 0.5
-normal_bias = 0.505
-data = SubResource( 6 )
+size = Vector3(10000, 200, 10000)
+data = SubResource("6")

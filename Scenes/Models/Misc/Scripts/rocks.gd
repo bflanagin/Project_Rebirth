@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 
 # Declare member variables here. Examples:
@@ -10,10 +10,10 @@ var found_ground = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ground = get_parent().get_translation()
+	ground = get_parent().get_position()
 	#y_offset = ground.y - 2 
 	#print(y_offset)
-	var rs = rand_range(0.5,5.2)
+	var rs = randf_range(0.5,5.2)
 	var RockScale= Vector3(rs,rs,rs)
 	self.scale_object_local(RockScale)
 	generate_rocks()
@@ -33,15 +33,15 @@ func _process(_delta):
 	#pass
 
 func generate_rocks():
-	var num_of_rocks = int(rand_range(1,5))
+	var num_of_rocks = int(randf_range(1,5))
 	
 	while get_child_count() < num_of_rocks:
 		var rock_instance = $rock.duplicate()
-		var rotate_rock = int(rand_range(1,6))
-		var scale_rock = int(rand_range(1,3))
-		var offset_rock = int(rand_range(1,3))
+		var rotate_rock = int(randf_range(1,6))
+		var scale_rock = int(randf_range(1,3))
+		var offset_rock = int(randf_range(1,3))
 		
-		var rs = rand_range(0.5,2)
+		var rs = randf_range(0.5,2)
 		
 		var RockRotation = Vector3(0,1,0)
 		
@@ -64,16 +64,16 @@ func generate_rocks():
 				
 		match offset_rock:
 			1:
-				RockOffset = Vector3(0,self.translation.y,rand_range(-3,3))
+				RockOffset = Vector3(0,self.position.y,randf_range(-3,3))
 			2:
-				RockOffset = Vector3(rand_range(-3,3),self.translation.y,rand_range(-3,3))
+				RockOffset = Vector3(randf_range(-3,3),self.position.y,randf_range(-3,3))
 			3:
-				RockOffset = Vector3(rand_range(-3,3),self.translation.y,0)
+				RockOffset = Vector3(randf_range(-3,3),self.position.y,0)
 				
 		
 		rock_instance.scale_object_local(RockScale)
 		rock_instance.rotate(RockRotation.normalized(),90)
-		rock_instance.set_translation(RockOffset)
+		rock_instance.set_position(RockOffset)
 		
 		add_child(rock_instance)
 		pass

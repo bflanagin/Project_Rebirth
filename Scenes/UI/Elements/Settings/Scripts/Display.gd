@@ -8,10 +8,10 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	rect_min_size = get_parent().rect_size
-	rect_size = get_parent().rect_size
-	$HBoxContainer/VBoxContainer.rect_size = rect_size * 0.9
-	$HBoxContainer/VBoxContainer.rect_min_size = rect_size * 0.9
+	custom_minimum_size = get_parent().size
+	size = get_parent().size
+	$HBoxContainer/VBoxContainer.size = size * 0.9
+	$HBoxContainer/VBoxContainer.custom_minimum_size = size * 0.9
 	pass # Replace with function body.
 
 
