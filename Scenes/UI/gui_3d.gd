@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-extends Spatial
-=======
 extends Node3D
->>>>>>> eac3146 (no clue whats going on)
 
 var Ratios = ["res://Scenes/UI/Quad1-1.tscn","res://Scenes/UI/Quad3-2.tscn","res://Scenes/UI/Quad2-3.tscn","res://Scenes/UI/Quad4-3.tscn","res://Scenes/UI/Quad4-9.tscn"]
 
@@ -17,39 +13,23 @@ var last_mouse_pos3D = null
 # The last processed input touch/mouse event. To calculate relative movement.
 var last_mouse_pos2D = null
 
-<<<<<<< HEAD
-export var UI = ""
-export var handle_input = true
-
-export var distance = 4
-=======
 @export var UI = ""
 @export var handle_input = true
 
 @export var distance = 4
->>>>>>> eac3146 (no clue whats going on)
 
 #var qua = preload("res://scenes/Quad.tscn")
 
 
 #onready var quad_instance = qua.instance()
-<<<<<<< HEAD
-onready var node_viewport = $Viewport
-=======
 @onready var node_viewport = $SubViewport
->>>>>>> eac3146 (no clue whats going on)
 var node_quad = ""
 var node_area = ""
 
 
 
-<<<<<<< HEAD
-export var resolution = Vector2(1024,768)
-export(int, FLAGS,"1:1","3:2","2:3","4:3","4:9") var ratio = 1
-=======
 @export var resolution = Vector2(1024,768)
 @export var ratio = 1 # (int, FLAGS,"1:1","3:2","2:3","4:3","4:9")
->>>>>>> eac3146 (no clue whats going on)
 
 signal finished(menu)
 
@@ -58,11 +38,7 @@ signal to_ui(data)
 
 
 func display_setup():
-<<<<<<< HEAD
-	node_viewport = $Viewport
-=======
 	node_viewport = $SubViewport
->>>>>>> eac3146 (no clue whats going on)
 	var quad_instance
 	match ratio:
 		1:
@@ -78,11 +54,7 @@ func display_setup():
 			quad_instance = load(Ratios[4]).instance()
 	
 	node_quad = quad_instance
-<<<<<<< HEAD
-	node_area = node_quad.get_node("Area")
-=======
 	node_area = node_quad.get_node("Area3D")
->>>>>>> eac3146 (no clue whats going on)
 	add_child(quad_instance)
 	node_viewport.set_size(resolution)
 
@@ -90,32 +62,18 @@ func _ready():
 
 	if UI != "":
 		if load_ui(UI) == 1:
-<<<<<<< HEAD
-			var viewport = node_quad.get_surface_material(0).get_texture(0)
-			viewport.set_viewport_path_in_scene("../Viewport")
-			node_area.connect("mouse_entered", self, "_mouse_entered_area")
-=======
 			var viewport = node_quad.get_surface_override_material(0).get_texture(0)
 			viewport.set_viewport_path_in_scene("../SubViewport")
 			node_area.connect("mouse_entered", Callable(self, "_mouse_entered_area"))
->>>>>>> eac3146 (no clue whats going on)
 			emit_signal("relay",["ui","ready"])
 		
 	else:
 		display_setup()
-<<<<<<< HEAD
-		var viewport = node_quad.get_surface_material(0).get_texture(0)
-		viewport.set_viewport_path_in_scene("../Viewport")
-		
-		# If the material is NOT set to use billboard settings, then avoid running billboard specific code
-	if node_quad.get_surface_material(0).params_billboard_mode == 0:
-=======
 		var viewport = node_quad.get_surface_override_material(0).get_texture(0)
 		viewport.set_viewport_path_in_scene("../SubViewport")
 		
 		# If the material is NOT set to use billboard settings, then avoid running billboard specific code
 	if node_quad.get_surface_override_material(0).params_billboard_mode == 0:
->>>>>>> eac3146 (no clue whats going on)
 		set_process(false)
 
 		
@@ -134,17 +92,10 @@ func _mouse_entered_area():
 func _unhandled_input(event):
 	# Check if the event is a non-mouse/non-touch event
 	var is_mouse_event = false
-<<<<<<< HEAD
-	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
-		if event is mouse_event:
-			is_mouse_event = true
-			break
-=======
 	#for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
 	if event is InputEventMouse:
 		is_mouse_event = true
 		#break
->>>>>>> eac3146 (no clue whats going on)
 	
 	# If the event is a mouse/touch event and/or the mouse is either held or inside the area, then
 	# we need to do some additional processing in the handle_mouse function before passing the event to the viewport.
@@ -219,23 +170,15 @@ func handle_mouse(event):
 
 
 func find_mouse(global_position):
-<<<<<<< HEAD
-	var camera = get_viewport().get_camera()
-=======
 	var camera = get_viewport().get_camera_3d()
->>>>>>> eac3146 (no clue whats going on)
 	
 	# From camera center to the mouse position in the Area
 	var from = camera.project_ray_origin(global_position)
 	var dist = find_further_distance_to(camera.transform.origin)
 	var to = from + camera.project_ray_normal(global_position) * dist
 	# Manually raycasts the are to find the mouse position
-<<<<<<< HEAD
-	var result = get_world().direct_space_state.intersect_ray(from, to, [], node_area.collision_layer,false,true) #for 3.1 changes
-=======
 	var params = PhysicsDirectBodyState3D(from, to, [], node_area.collision_layer,false,true)
 	var result = get_world_3d().direct_space_state.intersect_ray(params) #for 3.1 changes
->>>>>>> eac3146 (no clue whats going on)
 	if result.size() > 0:
 		return result.position
 	else:
@@ -262,26 +205,15 @@ func find_further_distance_to(origin):
 
 
 func rotate_area_to_billboard():
-<<<<<<< HEAD
-	var billboard_mode = node_quad.get_surface_material(0).params_billboard_mode
-=======
 	var billboard_mode = node_quad.get_surface_override_material(0).params_billboard_mode
->>>>>>> eac3146 (no clue whats going on)
 	
 	# Try to match the area with the material's billboard setting, if enabled
 	if billboard_mode > 0:
 		# Get the camera
-<<<<<<< HEAD
-		var camera = get_viewport().get_camera()
-		# Look in the same direction as the camera
-		var look = camera.to_global(Vector3(0, 0, -100)) - camera.global_transform.origin
-		look = node_area.translation + look
-=======
 		var camera = get_viewport().get_camera_3d()
 		# Look in the same direction as the camera
 		var look = camera.to_global(Vector3(0, 0, -100)) - camera.global_transform.origin
 		look = node_area.position + look
->>>>>>> eac3146 (no clue whats going on)
 		
 		# Y-Billboard: Lock Y rotation, but gives bad results if the camera is tilted.
 		if billboard_mode == 2:
@@ -307,17 +239,6 @@ func load_ui(path):
 		child.queue_free()
 		
 	var display = load(path)
-<<<<<<< HEAD
-	node_viewport.add_child(display.instance())
-	if node_viewport.get_child_count() == 1:
-		if !node_viewport.get_child(0).is_connected("finished",self,"_on_ui_finished"):
-			var _error = node_viewport.get_child(0).connect("finished",self,"_on_ui_finished")
-			_error = connect("to_ui",node_viewport.get_child(0),"from_Above")
-	return 1
-	
-func update_internal(data):
-	node_viewport = $Viewport
-=======
 	node_viewport.add_child(display.instantiate())
 	if node_viewport.get_child_count() == 1:
 		if !node_viewport.get_child(0).is_connected("finished", Callable(self, "_on_ui_finished")):
@@ -327,7 +248,6 @@ func update_internal(data):
 	
 func update_internal(data):
 	node_viewport = $SubViewport
->>>>>>> eac3146 (no clue whats going on)
 	if node_viewport.get_child_count() > 0:
 		node_viewport.get_child(0).data_update(data)
 

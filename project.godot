@@ -12,10 +12,10 @@ config_version=5
 
 config/name="Project Rebirth"
 config/description="Rebuilding."
+config/tags=PackedStringArray("rhemagames", "thicket")
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
-config/tags=PackedStringArray("rhemagames", "thicket")
 
 [autoload]
 
@@ -23,13 +23,8 @@ Mistro="*res://Backend/Mistro.tscn"
 
 [display]
 
-<<<<<<< HEAD
-window/size/width=2560
-window/size/height=1440
-=======
 window/size/viewport_width=2560
 window/size/viewport_height=1440
->>>>>>> eac3146 (no clue whats going on)
 window/size/fullscreen=true
 
 [input]

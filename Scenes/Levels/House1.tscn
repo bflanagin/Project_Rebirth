@@ -18,15 +18,9 @@
 [ext_resource type="Material" path="res://Assets/Models/wood board floor.material" id="16"]
 [ext_resource type="Material" path="res://Assets/Models/Glass.material" id="17"]
 
-<<<<<<< HEAD
-[sub_resource type="NavigationMesh" id=48]
-vertices = PoolVector3Array( -2.54686, 0.992906, 2.82436, -3.44686, 0.992906, 3.12436, -3.44686, 0.992906, 3.72436, 4.05314, 0.992906, 3.72436, -0.446861, 0.592906, 3.72436, -3.44686, 0.592906, -3.47564, -3.44686, 0.592906, -1.67564, -2.54686, 0.592906, -1.37564, -1.94686, 0.592906, -2.57564, -1.94686, 0.592906, -2.57564, 4.05314, 0.592906, -2.87564, 4.05314, 1.39291, -3.77564, -3.44686, 0.592906, -3.47564, -0.446861, 1.39291, -3.59564, -1.94686, 0.592906, -3.53564, 4.05314, 0.992906, 3.72436, 4.05314, 0.592906, -0.77564, -1.34686, 0.592906, -0.77564, -2.54686, 0.992906, 2.82436, 4.05314, 1.59291, 2.22436, 4.05314, 1.59291, 0.724361, -2.14686, 0.592906, 1.62436, 1.36515, 0.592906, 1.00754, -1.34686, 0.592906, -0.77564, -1.94686, 0.592906, -2.57564, -2.54686, 0.592906, -1.37564, -2.54686, 0.992906, 2.82436, -2.14686, 0.592906, 1.62436, -2.54686, 0.592906, 1.42436 )
-polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 4 ), PoolIntArray( 4, 0, 3 ), PoolIntArray( 7, 6, 8 ), PoolIntArray( 8, 6, 5 ), PoolIntArray( 12, 14, 9 ), PoolIntArray( 9, 14, 13 ), PoolIntArray( 9, 13, 10 ), PoolIntArray( 10, 13, 11 ), PoolIntArray( 21, 22, 18 ), PoolIntArray( 18, 22, 15 ), PoolIntArray( 15, 22, 19 ), PoolIntArray( 19, 22, 20 ), PoolIntArray( 20, 22, 16 ), PoolIntArray( 16, 22, 17 ), PoolIntArray( 17, 22, 21 ), PoolIntArray( 26, 28, 27 ), PoolIntArray( 27, 28, 23 ), PoolIntArray( 23, 28, 25 ), PoolIntArray( 23, 25, 24 ) ]
-=======
 [sub_resource type="NavigationMesh" id="48"]
 vertices = PackedVector3Array(-2.54686, 0.992906, 2.82436, -3.44686, 0.992906, 3.12436, -3.44686, 0.992906, 3.72436, 4.05314, 0.992906, 3.72436, -0.446861, 0.592906, 3.72436, -3.44686, 0.592906, -3.47564, -3.44686, 0.592906, -1.67564, -2.54686, 0.592906, -1.37564, -1.94686, 0.592906, -2.57564, -1.94686, 0.592906, -2.57564, 4.05314, 0.592906, -2.87564, 4.05314, 1.39291, -3.77564, -3.44686, 0.592906, -3.47564, -0.446861, 1.39291, -3.59564, -1.94686, 0.592906, -3.53564, 4.05314, 0.992906, 3.72436, 4.05314, 0.592906, -0.77564, -1.34686, 0.592906, -0.77564, -2.54686, 0.992906, 2.82436, 4.05314, 1.59291, 2.22436, 4.05314, 1.59291, 0.724361, -2.14686, 0.592906, 1.62436, 1.36515, 0.592906, 1.00754, -1.34686, 0.592906, -0.77564, -1.94686, 0.592906, -2.57564, -2.54686, 0.592906, -1.37564, -2.54686, 0.992906, 2.82436, -2.14686, 0.592906, 1.62436, -2.54686, 0.592906, 1.42436)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(4, 0, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 5), PackedInt32Array(12, 14, 9), PackedInt32Array(9, 14, 13), PackedInt32Array(9, 13, 10), PackedInt32Array(10, 13, 11), PackedInt32Array(21, 22, 18), PackedInt32Array(18, 22, 15), PackedInt32Array(15, 22, 19), PackedInt32Array(19, 22, 20), PackedInt32Array(20, 22, 16), PackedInt32Array(16, 22, 17), PackedInt32Array(17, 22, 21), PackedInt32Array(26, 28, 27), PackedInt32Array(27, 28, 23), PackedInt32Array(23, 28, 25), PackedInt32Array(23, 25, 24)]
->>>>>>> eac3146 (no clue whats going on)
 geometry_source_geometry_mode = 1
 
 [sub_resource type="ArrayMesh" id="1"]
@@ -711,11 +705,7 @@ navigation_mesh = SubResource("48")
 [node name="Floor" type="MeshInstance3D" parent="." groups=["navigation_mesh"]]
 transform = Transform3D(0.529387, 0, 0, 0, 0.529387, 0, 0, 0, 0.529387, 0.21771, -7.60183e-05, 0.0129521)
 cast_shadow = 0
-<<<<<<< HEAD
-mesh = SubResource( 1 )
-=======
 mesh = SubResource("1")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="Floor"]
 
@@ -773,159 +763,87 @@ shadow_enabled = true
 transform = Transform3D(0.0726006, 0.682675, 0.727107, 0.0678268, -0.730723, 0.679297, 0.995052, 0, -0.0993545, 14.4035, 9.20082, 0)
 shadow_enabled = true
 
-<<<<<<< HEAD
-[node name="BathroomFloor " type="MeshInstance" parent="." groups=["navmesh"]]
-transform = Transform( 0.150294, 0, 0, 0, 0.529387, 0, 0, 0, 0.231464, -2.82889, -7.60183e-05, -6.11104 )
-mesh = SubResource( 3 )
-=======
 [node name="BathroomFloor " type="MeshInstance3D" parent="." groups=["navigation_mesh"]]
 transform = Transform3D(0.150294, 0, 0, 0, 0.529387, 0, 0, 0, 0.231464, -2.82889, -7.60183e-05, -6.11104)
 mesh = SubResource("3")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="BathroomFloor "]
 
 [node name="shape0" type="CollisionShape3D" parent="BathroomFloor /static_collision"]
 shape = SubResource("4")
 
-<<<<<<< HEAD
-[node name="LeftWall " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, -4.27205, 0.088236, -1.85726 )
-mesh = SubResource( 5 )
-=======
 [node name="LeftWall " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, -4.27205, 0.088236, -1.85726)
 mesh = SubResource("5")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="LeftWall "]
 
 [node name="shape0" type="CollisionShape3D" parent="LeftWall /static_collision"]
 shape = SubResource("6")
 
-<<<<<<< HEAD
-[node name="RightWall " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, 4.4815, 0.088236, -1.85726 )
-mesh = SubResource( 7 )
-=======
 [node name="RightWall " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, 4.4815, 0.088236, -1.85726)
 mesh = SubResource("7")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="RightWall "]
 
 [node name="shape0" type="CollisionShape3D" parent="RightWall /static_collision"]
 shape = SubResource("8")
 
-<<<<<<< HEAD
-[node name="BackWall " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, 0.748007, 0.088236, -4.25634 )
-mesh = SubResource( 9 )
-=======
 [node name="BackWall " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, 0.748007, 0.088236, -4.25634)
 mesh = SubResource("9")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="BackWall "]
 
 [node name="shape0" type="CollisionShape3D" parent="BackWall /static_collision"]
 shape = SubResource("10")
 
-<<<<<<< HEAD
-[node name="BathroomBackWall  " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, -1.89398, 0.088236, -7.97196 )
-mesh = SubResource( 11 )
-=======
 [node name="BathroomBackWall  " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, -1.89398, 0.088236, -7.97196)
 mesh = SubResource("11")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="BathroomBackWall  "]
 
 [node name="shape0" type="CollisionShape3D" parent="BathroomBackWall  /static_collision"]
 shape = SubResource("12")
 
-<<<<<<< HEAD
-[node name="BathroomRightWall " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, -1.61522, 0.088236, -5.81202 )
-mesh = SubResource( 13 )
-=======
 [node name="BathroomRightWall " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 0.529387, 0, -0.529387, 9.46617e-08, 0, 0, 0, 0.758268, -1.61522, 0.088236, -5.81202)
 mesh = SubResource("13")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="BathroomRightWall "]
 
 [node name="shape0" type="CollisionShape3D" parent="BathroomRightWall /static_collision"]
 shape = SubResource("14")
 
-<<<<<<< HEAD
-[node name="FrontWall " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, 1.82032, 0.088236, 4.25152 )
-mesh = SubResource( 15 )
-=======
 [node name="FrontWall " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, 1.82032, 0.088236, 4.25152)
 mesh = SubResource("15")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="FrontWall "]
 
 [node name="shape0" type="CollisionShape3D" parent="FrontWall /static_collision"]
 shape = SubResource("16")
 
-<<<<<<< HEAD
-[node name="Bar" type="MeshInstance" parent="." groups=["navmesh"]]
-transform = Transform( 9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -2.27556 )
-use_in_baked_light = true
-mesh = SubResource( 17 )
-=======
 [node name="Bar" type="MeshInstance3D" parent="." groups=["navigation_mesh"]]
 transform = Transform3D(9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -2.27556)
 mesh = SubResource("17")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="Bar"]
 
 [node name="shape0" type="CollisionShape3D" parent="Bar/static_collision"]
 shape = SubResource("18")
 
-<<<<<<< HEAD
-[node name="kitchen " type="MeshInstance" parent="." groups=["navmesh"]]
-transform = Transform( 9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -3.95595 )
-mesh = SubResource( 19 )
-=======
 [node name="kitchen " type="MeshInstance3D" parent="." groups=["navigation_mesh"]]
 transform = Transform3D(9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -3.95595)
 mesh = SubResource("19")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="kitchen "]
 
 [node name="shape0" type="CollisionShape3D" parent="kitchen /static_collision"]
 shape = SubResource("20")
 
-<<<<<<< HEAD
-[node name="Ceiling" type="MeshInstance" parent="."]
-transform = Transform( 0.596295, 0, 0, 0, 0.529387, 0, 0, 0, 0.550115, 0.21771, 3.02334, 0.0129521 )
-mesh = SubResource( 21 )
-
-[node name="Cube" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.235446, 0, 0, 0, 1, -2.88412, 0.23401, -4.38105 )
-mesh = SubResource( 22 )
-
-[node name="Window1_standard" type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -2.92558, 0.810116, 4.25152 )
-mesh = SubResource( 23 )
-
-[node name="FrontWall 002" type="MeshInstance" parent="Window1_standard"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851731, 0 )
-mesh = SubResource( 24 )
-=======
 [node name="Ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.596295, 0, 0, 0, 0.529387, 0, 0, 0, 0.550115, 0.21771, 3.02334, 0.0129521)
 mesh = SubResource("21")
@@ -941,7 +859,6 @@ mesh = SubResource("23")
 [node name="FrontWall 002" type="MeshInstance3D" parent="Window1_standard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851731, 0)
 mesh = SubResource("24")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="Window1_standard/FrontWall 002"]
 
@@ -953,15 +870,6 @@ shape = SubResource("25")
 [node name="shape0" type="CollisionShape3D" parent="Window1_standard/static_collision"]
 shape = SubResource("26")
 
-<<<<<<< HEAD
-[node name="largeWindow1 " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, 0.748007, 0.088236, -4.25634 )
-mesh = SubResource( 27 )
-
-[node name="smallWindow1  " type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, -1.89398, 0.088236, -7.97196 )
-mesh = SubResource( 28 )
-=======
 [node name="largeWindow1 " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, 0.748007, 0.088236, -4.25634)
 mesh = SubResource("27")
@@ -969,22 +877,12 @@ mesh = SubResource("27")
 [node name="smallWindow1  " type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 0, 0.758268, -0.529387, 0, 1.58187e-07, 0, -0.529387, 0, -1.89398, 0.088236, -7.97196)
 mesh = SubResource("28")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="smallWindow1  "]
 
 [node name="shape0" type="CollisionShape3D" parent="smallWindow1  /static_collision"]
 shape = SubResource("29")
 
-<<<<<<< HEAD
-[node name="Window1_standard001" type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -1.75709, 0.810116, 4.25152 )
-mesh = SubResource( 30 )
-
-[node name="FrontWall 001" type="MeshInstance" parent="Window1_standard001"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851736, 0 )
-mesh = SubResource( 31 )
-=======
 [node name="Window1_standard001" type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -1.75709, 0.810116, 4.25152)
 mesh = SubResource("30")
@@ -992,7 +890,6 @@ mesh = SubResource("30")
 [node name="FrontWall 001" type="MeshInstance3D" parent="Window1_standard001"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851736, 0)
 mesh = SubResource("31")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="Window1_standard001/FrontWall 001"]
 
@@ -1004,15 +901,6 @@ shape = SubResource("32")
 [node name="shape0" type="CollisionShape3D" parent="Window1_standard001/static_collision"]
 shape = SubResource("33")
 
-<<<<<<< HEAD
-[node name="Window1_standard002" type="MeshInstance" parent="."]
-transform = Transform( 9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -0.669186, 0.810116, 4.25152 )
-mesh = SubResource( 34 )
-
-[node name="FrontWall 003" type="MeshInstance" parent="Window1_standard002"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851746, 0 )
-mesh = SubResource( 35 )
-=======
 [node name="Window1_standard002" type="MeshInstance3D" parent="."]
 transform = Transform3D(9.46617e-08, 1.10439e-07, -0.758268, -0.529387, 0, -1.58187e-07, 0, 0.529387, 1.35589e-07, -0.669186, 0.810116, 4.25152)
 mesh = SubResource("34")
@@ -1020,7 +908,6 @@ mesh = SubResource("34")
 [node name="FrontWall 003" type="MeshInstance3D" parent="Window1_standard002"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851746, 0)
 mesh = SubResource("35")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="Window1_standard002/FrontWall 003"]
 
@@ -1033,15 +920,6 @@ shape = SubResource("36")
 transform = Transform3D(1, 0, -1.11467e-20, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("37")
 
-<<<<<<< HEAD
-[node name="Window1_standard003" type="MeshInstance" parent="."]
-transform = Transform( 6.31078e-08, 0.529387, 0.000351034, -0.529387, 6.31078e-08, 5.51713e-11, 7.70359e-12, -0.000245075, 0.758268, 4.48765, 0.810116, 2.2257 )
-mesh = SubResource( 38 )
-
-[node name="FrontWall 004" type="MeshInstance" parent="Window1_standard003"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851755, 0 )
-mesh = SubResource( 39 )
-=======
 [node name="Window1_standard003" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.31078e-08, 0.529387, 0.000351034, -0.529387, 6.31078e-08, 5.51713e-11, 7.70359e-12, -0.000245075, 0.758268, 4.48765, 0.810116, 2.2257)
 mesh = SubResource("38")
@@ -1049,7 +927,6 @@ mesh = SubResource("38")
 [node name="FrontWall 004" type="MeshInstance3D" parent="Window1_standard003"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851755, 0)
 mesh = SubResource("39")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="Window1_standard003/FrontWall 004"]
 
@@ -1061,15 +938,6 @@ shape = SubResource("40")
 [node name="shape0" type="CollisionShape3D" parent="Window1_standard003/static_collision"]
 shape = SubResource("41")
 
-<<<<<<< HEAD
-[node name="Window1_standard004" type="MeshInstance" parent="."]
-transform = Transform( 6.31078e-08, 0.529387, 0.000351034, -0.529387, 6.31078e-08, 5.51713e-11, 7.70359e-12, -0.000245075, 0.758268, 4.48765, 0.810116, -0.972389 )
-mesh = SubResource( 42 )
-
-[node name="FrontWall 005" type="MeshInstance" parent="Window1_standard004"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851755, 0 )
-mesh = SubResource( 43 )
-=======
 [node name="Window1_standard004" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.31078e-08, 0.529387, 0.000351034, -0.529387, 6.31078e-08, 5.51713e-11, 7.70359e-12, -0.000245075, 0.758268, 4.48765, 0.810116, -0.972389)
 mesh = SubResource("42")
@@ -1077,7 +945,6 @@ mesh = SubResource("42")
 [node name="FrontWall 005" type="MeshInstance3D" parent="Window1_standard004"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0851755, 0)
 mesh = SubResource("43")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="Window1_standard004/FrontWall 005"]
 
@@ -1091,15 +958,9 @@ shape = SubResource("45")
 
 [node name="Files" type="Node" parent="."]
 
-<<<<<<< HEAD
-[node name="kitchen 001" type="MeshInstance" parent="."]
-transform = Transform( 9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -3.95595 )
-mesh = SubResource( 46 )
-=======
 [node name="kitchen 001" type="MeshInstance3D" parent="."]
 transform = Transform3D(9.05262, 0, 0, 0, 1.3464, 0, 0, 0, 1.3464, 1.69842, 0.643092, -3.95595)
 mesh = SubResource("46")
->>>>>>> eac3146 (no clue whats going on)
 
 [node name="static_collision" type="StaticBody3D" parent="kitchen 001"]
 

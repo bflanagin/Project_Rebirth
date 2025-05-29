@@ -124,20 +124,6 @@ func music_files(path,parent):
 		if Mistro.big_list.has("Music"):
 			for artist in Mistro.big_list["Music"].keys():
 				for album in Mistro.big_list["Music"][artist]:
-<<<<<<< HEAD
-					var aInstance = musicItem.instance()
-					randomize()
-					var a_rand_x = rand_range(-base_floor.shape.extents.x * 0.7,base_floor.shape.extents.x * 0.7)
-					randomize()
-					var a_rand_z = rand_range(-base_floor.shape.extents.z * 0.5,base_floor.shape.extents.z * 0.5)
-					randomize()
-					var a_rand_y = rand_range(-base_floor.shape.extents.y * 0.99,base_floor.shape.extents.y * 0.1)
-					var a_finalLocation = base_floor.translation 
-					a_finalLocation.x += a_rand_x 
-					a_finalLocation.y = base.get_node("Floor").translation.y + 0.5
-					a_finalLocation.z += a_rand_z
-					aInstance.translation = a_finalLocation
-=======
 					var aInstance = musicItem.instantiate()
 					randomize()
 					var a_rand_x = randf_range(-base_floor.shape.extents.x * 0.7,base_floor.shape.extents.x * 0.7)
@@ -150,7 +136,6 @@ func music_files(path,parent):
 					a_finalLocation.y = base.get_node("Floor").position.y + 0.5
 					a_finalLocation.z += a_rand_z
 					aInstance.position = a_finalLocation
->>>>>>> eac3146 (no clue whats going on)
 					aInstance.url = album
 					parent.add_child(aInstance)
 					#print(finalLocation)

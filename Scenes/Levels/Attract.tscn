@@ -53,13 +53,8 @@ tracks/0/keys = {
 [node name="Attract" type="Node3D"]
 script = ExtResource( 4 )
 
-<<<<<<< HEAD
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.105186, 0.025649, 0.994122, -0.0193942, 0.99953, -0.0237365, -0.994264, -0.0167835, 0.105634, 1.58627, 0.911381, -3.71947 )
-=======
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D( 0.105186, 0.025649, 0.994122, -0.0193942, 0.99953, -0.0237365, -0.994264, -0.0167835, 0.105634, 1.58627, 0.911381, -3.71947 )
->>>>>>> eac3146 (no clue whats going on)
 current = true
 fov = 23.5466
 size = 16.0

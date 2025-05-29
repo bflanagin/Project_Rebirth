@@ -87,7 +87,7 @@ func location_settings():
 			get_child(0).custom_minimum_size.x = windowSize.x * 0.20
 			get_child(0).size.x = windowSize.x * 0.20
 		"FullMenu":
-			set_anchors_and_offsets_preset(Control.PRESET_WIDE)
+			set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 			get_child(0).custom_minimum_size.y = windowSize.y * 0.9
 			get_child(0).size.y = windowSize.y * 0.9
 			get_child(0).custom_minimum_size.x = windowSize.x * 0.9

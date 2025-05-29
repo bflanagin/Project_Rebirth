@@ -32,13 +32,8 @@ var _speed: int
 var _is_sprinting_input := false
 var _is_jumping_input := false
 
-<<<<<<< HEAD
-onready var melee = $Head/MeleeActionRange
-onready var call = $Head/CallRange
-=======
 @onready var melee = $Head/MeleeActionRange
 @onready var call = $Head/CallRange
->>>>>>> eac3146 (no clue whats going on)
 
 var targeting = null
 var target_lock = false
@@ -287,10 +282,6 @@ func _on_character_action(action):
 			print(" ready for command")
 			can_move = false
 			$AnimationPlayer.play("Crouch")
-<<<<<<< HEAD
-			targeting.get_node("Camera").make_current()
-=======
 			targeting.get_node("Camera3D").make_current()
->>>>>>> eac3146 (no clue whats going on)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	pass
